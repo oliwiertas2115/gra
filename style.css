@@ -1,0 +1,40 @@
+body {
+    background: #123456;
+    color: white;
+    font-family: 'Arial Black', sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+#lobby, #battle {
+    padding: 50px;
+}
+
+.stats {
+    font-size: 24px;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.btn-play {
+    background: #ffcc00;
+    border: none;
+    padding: 20px 50px;
+    font-size: 30px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px #ccaa00;
+}
+
+.btn-play:active {
+    transform: translateY(4px);
+}
+
+.hp-bar {
+    background: red;
+    padding: 10px;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 10px;
+}
