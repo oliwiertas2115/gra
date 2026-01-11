@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Brawl Clicker</title>
+</head>
+<body>
+    <div id="lobby">
+        <h1>BRAWL CLICKER</h1>
+        <div class="stats">
+            Puchary: <span id="trophy-count">0</span> 🏆
+        </div>
+        <div class="character-preview">
+            <img src="https://via.placeholder.com/150" id="char-img" alt="Postać">
+            <h2 id="char-name">Shelly Click</h2>
+        </div>
+        <button class="btn-play" onclick="startMatch()">ZAGRAJ</button>
+    </div>
+
+    <div id="battle" style="display: none;">
+        <h2>WALKA!</h2>
+        <div class="hp-bar">HP Przeciwnika: <span id="enemy-hp">500</span></div>
+        <div id="click-area" onclick="dealDamage()">
+            <img src="https://via.placeholder.com/100/red/white?text=CEL" alt="Przeciwnik">
+        </div>
+        <p>Klikaj szybko!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
