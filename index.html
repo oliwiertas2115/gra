@@ -2,50 +2,62 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="style.css">
-    <title>Brawl Clicker Ultimate</title>
+    <title>Brawl Clicker Pro</title>
 </head>
 <body>
-    <div id="ui-overlay">
-        <div class="top-bar">
-            <div class="stat">🏆 <span id="tropy-val">0</span></div>
-            <div class="stat">💰 <span id="coin-val">0</span></div>
-            <div class="stat">⭐ <span id="xp-val">0</span></div>
+    <div id="game-app">
+        <div class="top-nav">
+            <div class="badge trophy">🏆 <span id="t-val">0</span></div>
+            <div class="badge coins">💰 <span id="c-val">0</span></div>
+            <div class="badge gems">💎 <span id="g-val">0</span></div>
         </div>
 
-        <div id="view-lobby" class="view">
-            <div class="char-container">
-                <img id="current-img" src="https://wiki.brawlstars.com/images/thumb/Shelly_Skin-Default.png/200px-Shelly_Skin-Default.png">
-                <h2 id="current-name">SHELLY</h2>
-                <p>Moc: <span id="char-power">1</span></p>
-            </div>
-            <div class="main-buttons">
-                <button onclick="switchView('view-road')">ALEJA</button>
-                <button class="play-btn" onclick="startBattle()">ZAGRAJ</button>
-                <button onclick="switchView('view-pass')">KARNET</button>
-            </div>
-            <button class="box-btn" onclick="openBox()">OTWÓRZ SKRZYNKĘ (100💰)</button>
-        </div>
-
-        <div id="view-road" class="view hidden">
-            <h1>ALEJA PUCHARÓW</h1>
-            <div id="road-items">
+        <div id="v-lobby" class="view">
+            <div class="brawler-display">
+                <div class="rank-tag">RANGA <span id="r-val">1</span></div>
+                <img id="player-img" src="https://wiki.brawlstars.com/images/thumb/Shelly_Skin-Default.png/200px-Shelly_Skin-Default.png" class="main-brawler">
+                <div class="brawler-stats">
+                    <h1 id="p-name">SHELLY</h1>
+                    <div class="power-bar">MOC <span id="p-val">1</span></div>
                 </div>
-            <button onclick="switchView('view-lobby')">POWRÓT</button>
-        </div>
-
-        <div id="view-pass" class="view hidden">
-            <h1>BRAWL PASS</h1>
-            <div class="xp-bar-container">
-                <div id="xp-fill"></div>
             </div>
-            <p>XP do nagrody: <span id="xp-needed">100</span></p>
-            <button onclick="switchView('view-lobby')">POWRÓT</button>
+            <div class="lobby-footer">
+                <button class="side-btn" onclick="switchView('v-road')">ALEJA</button>
+                <button class="play-btn" onclick="startBattle()">ZAGRAJ</button>
+                <button class="side-btn" onclick="switchView('v-shop')">SKLEP</button>
+            </div>
         </div>
 
-        <div id="view-battle" class="view hidden">
-            <div class="enemy-hp-bar"><div id="enemy-fill"></div></div>
-            <img class="enemy" src="https://wiki.brawlstars.com/images/thumb/Robot_Melee.png/150px-Robot_Melee.png" onclick="clickEnemy()">
+        <div id="v-battle" class="view hidden">
+            <div class="battle-header">
+                <h2 id="boss-name">ROBOT BOSS</h2>
+                <div class="hp-container">
+                    <div id="hp-fill"></div>
+                    <span id="hp-text">1000/1000</span>
+                </div>
+            </div>
+            <div class="battle-field">
+                <img id="boss-img" src="https://wiki.brawlstars.com/images/thumb/Robot_Melee.png/180px-Robot_Melee.png" onclick="hitEnemy(event)">
+            </div>
+            <div class="battle-footer">
+                <div class="super-container">
+                    <div id="super-fill"></div>
+                    <button id="super-btn" onclick="useSuper()" disabled>SUPER!</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="v-shop" class="view hidden">
+            <h1>SKLEP</h1>
+            <div class="box-container">
+                <div class="box" onclick="buyBox(100)">
+                    <img src="https://wiki.brawlstars.com/images/thumb/Brawl_Box.png/120px-Brawl_Box.png">
+                    <p>ZWYKŁA SKRZYNKA<br>100 💰</p>
+                </div>
+            </div>
+            <button class="back-btn" onclick="switchView('v-lobby')">POWRÓT</button>
         </div>
     </div>
     <script src="script.js"></script>
